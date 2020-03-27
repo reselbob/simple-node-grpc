@@ -1,6 +1,6 @@
 const SERVER_URL = 'localhost:50051';
-const PROTO_PATH = process.cwd() + '/simple.proto';
-let {server} = require("../index");
+const PROTO_PATH = process.cwd() + '/proto/simple.proto';
+let {server} = require("../server/server");
 const grpc = require('grpc');
 const protoLoader = require('@grpc/proto-loader');
 const expect = require('chai').expect;
@@ -26,8 +26,8 @@ const client = new simplegrpc.SimpleService(SERVER_URL,
 
 describe('Basic gRPC Tests: ', () => {
 
-    after(async function() {
-        await server.forceShutdown();
+    after(function() {
+        server.forceShutdown();
         console.log({message: `gRPC server shutdown at ${new Date()}`})
     });
 

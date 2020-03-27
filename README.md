@@ -1,82 +1,19 @@
-# Simple Service
+# Simple gRPC
 
-This project is a demonstration gRPC API written in Node.JS.
+This is a project intended to demonstrate how to run both a gRPC server and web client that uses the server.
 
-## Description
+Both client and server are written in Node.js.
 
-The `Simple Service` is a gPRC API that publishes four functions:
+## General Installation
 
-* add
-* subtract
-* multiply
-* divide
+Copy the latest version of the project's `.proto` file into the both client and server locations by executing the following command:
 
-Each function take the message, `Request` as an argument. `Request` is
-an array of floating point numbers.
- 
-The following is an example of a `Request Message`:
+`sh set-protos.sh`
 
-```json
-{
-  "numbers": [
-    5,6,7,8,9
-  ]
-}
-```
- 
-Each function will process all the numbers in the array in order.
+## Getting the server up and running
 
-Each function in the API returns a message named `Response`. The following is an example of a 
-`Response` message:
+Read the installation instructions [here](./server/README.md)
 
-```json
-{
-  "result": 0.00006613756613756613
-}
-```
+## Getting the web client up and running
 
-## Installation
-
-Install the packages.
-
-`npm install`
-
-The start the server.
-
-`node index.js`
-
-
-## The `.proto` File
-
-```proto
-syntax = "proto3";
-
-package simplegrpc;
-
-option objc_class_prefix = "SIMPLEGRPC";
-
-/* Describes an array of floats to be processed */
-message Request {
-    repeated double numbers = 1;
-}
-
-/* Describes the result of processing the submitted array of floats */
-message Response {
-    double result = 1;
-}
-
-service SimpleService {
-    rpc Add (Request) returns (Response) {
-    }
-
-    rpc Subtract (Request) returns (Response) {
-    }
-
-    rpc Multiply (Request) returns (Response) {
-    }
-
-    rpc Divide (Request) returns (Response) {
-    }
-}
-```
-
+Read the installation instructions [here](./web/readme.md)
