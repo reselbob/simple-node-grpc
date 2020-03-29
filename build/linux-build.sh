@@ -31,6 +31,10 @@ export OUT_DIR="${WORK_DIR}/client/js"
 #create the environmental variable that describes the directory that contains .proto file
 export PROTO_DIR="${WORK_DIR}/proto"
 
+## visually confirm that the env var as correct
+echo "The PHOTO_DIR is: ${PROTO_DIR}"
+echo "The OUT_DIR is: ${OUT_DIR}"
+
 #generate the gRPC Client Code into $OUT_DIR
 protoc --proto_path=$PROTO_DIR simple.proto --js_out=import_style=commonjs,binary:$OUT_DIR
 
