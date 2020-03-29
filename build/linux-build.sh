@@ -33,12 +33,17 @@ echo "The SIMPLE_GRPC_WORK_DIR is: ${SIMPLE_GRPC_WORK_DIR}"
 
 #create the environmental variable that describes the directory where generated Javascript files will be stored
 export SIMPLE_GRPC_OUT_DIR="${SIMPLE_GRPC_WORK_DIR}/client/js"
+#create the JS output directory, if does not exist
+mkdir -p ${SIMPLE_GRPC_OUT_DIR}
+
 #create the environmental variable that describes the directory that contains .proto file
 export SIMPLE_GRPC_PROTO_DIR="${SIMPLE_GRPC_WORK_DIR}/proto"
 
 ## visually confirm that the env var as correct
 echo "The SIMPLE_GRPC_PROTO_DIR is: ${SIMPLE_GRPC_PROTO_DIR}"
 echo "The SIMPLE_GRPC_OUT_DIR is: ${SIMPLE_GRPC_OUT_DIR}"
+
+
 
 #generate the gRPC Client Code into $SIMPLE_GRPC_OUT_DIR
 protoc --proto_path=$SIMPLE_GRPC_PROTO_DIR simple.proto --js_out=import_style=commonjs,binary:$SIMPLE_GRPC_OUT_DIR
