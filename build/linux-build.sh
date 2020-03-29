@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 #make the working directory to handle protoc download activity
-mkdir jsProto
+mkdir buildWorkingDir
 #navigate to the directory
-cd jsProto
+cd buildWorkingDir
 #get the protoc assets
 curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.11.4/protoc-3.11.4-linux-x86_64.zip
 #unzip the file
@@ -14,14 +14,15 @@ cp -avr ./bin/protoc /usr/local/bin/protoc
 #make protoc executable
 chmod +x /usr/local/bin/protoc
 
-#go back to the HOME root
-cd ~
 #get the protoc-gen-grpc-web plugin binary from the Internet
 curl -OL https://github.com/grpc/grpc-web/releases/download/1.0.7/protoc-gen-grpc-web-1.0.7-linux-x86_64
 #copy it into the directory /usr/local/bin/ with the name, protoc-gen-grpc-web
 cp protoc-gen-grpc-web-1.0.7-linux-x86_64 /usr/local/bin/protoc-gen-grpc-web
 #make protoc-gen-grpc-web executable
 chmod +x /usr/local/bin/protoc-gen-grpc-web
+
+#go back to the up to the build directory
+cd ..
 
 echo "The PWD is: $(pwd)"
 
