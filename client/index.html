@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gRPC Test Page</title>
+</head>
+<body>
+
+<div>The is the TEST page for the gRPC client.</div>
+
+<hr>
+
+<div id="messageOutput"></div>
+
+</body>
+<script src="main.js"></script>
+<script>
+    var callback = function(err, response){
+        document.getElementById('messageOutput').innerHTML = response;
+    }
+
+    document.getElementById('messageOutput').innerHTML = SimpleService.simplePing('I am the walrus');
+
+</script>
+</html>

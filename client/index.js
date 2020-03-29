@@ -1,11 +1,22 @@
-const {PingRequest, PingResponse} = require('../tmp/simple_pb.js');
-const {SimpleService} = require('../tmp/simple_grpc_web_pb.js');
 
-var simpleService = new SimpleService('http://localhost:8080');
 
-var request = new PingRequest();
-request.setData('Hello World!');
+const {PingRequest, PingResponse} = require('./js/simple_pb.js');
+const {SimpleService} = require('./js/simple_grpc_web_pb.js');
 
-simpleService.ping(request, {}, function(err, response) {
-    // ...
-});
+const simpleService = new SimpleService('http://localhost:8080');
+
+module.exports = {
+    ping: function(data, callback){
+        const request = new PingRequest();
+        request.setData(data);
+        simpleService.ping(request, {}, function(err, response) {
+            callback(err, response.result)
+        })
+    },
+    simplePing: function(data){
+        return data;
+    }
+};
+
+
+
