@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+## install npx on the global machine, you'll need it later
+npm install -g npx
 
 #make the working directory to handle protoc download activity
 mkdir buildWorkingDir
@@ -50,3 +52,12 @@ protoc --proto_path=$SIMPLE_GRPC_PROTO_DIR simple.proto --js_out=import_style=co
 
 #generate the JavaScript code to embedded in the client web-page
 protoc -I=$SIMPLE_GRPC_PROTO_DIR simple.proto --grpc-web_out=import_style=commonjs,mode=grpcwebtext:$SIMPLE_GRPC_OUT_DIR
+
+#install the client packages
+cd .. && npm install
+
+#do a visual conformation on the webpack, web config
+cat ./webpack.config.js
+
+# generate the client code for the browser
+npx webpack

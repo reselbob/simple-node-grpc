@@ -43,7 +43,7 @@ Install the packages.
 
 The start the server.
 
-`node index.js`
+`node server.js`
 
 
 ## The `.proto` File
@@ -53,16 +53,44 @@ syntax = "proto3";
 
 package simplegrpc;
 
-option objc_class_prefix = "SIMPLEGRPC";
-
 /* Describes an array of floats to be processed */
 message Request {
     repeated double numbers = 1;
 }
 
-/* Describes the result of processing the submitted array of floats */
+/* Describes the result of processing */
 message Response {
     double result = 1;
+}
+
+/* Describes the request for a repeated value
+ value, the string to repeat
+ limit, the number of times to repeat
+ */
+message RepeatRequest {
+    string value = 1;
+    int32 limit = 2;
+}
+
+/* Describes the response for a repeated value
+ value, the repeated string
+ limit, the ordinal position in the response stream
+ */
+message RepeatResponse {
+    string value = 1;
+    int32 counter = 2;
+}
+
+/* Describes the response from a Ping call
+ */
+message PingResponse {
+    string result = 1;
+}
+
+/* Describes the request to a Ping call
+ */
+message PingRequest {
+    string data = 1;
 }
 
 service SimpleService {
@@ -76,6 +104,12 @@ service SimpleService {
     }
 
     rpc Divide (Request) returns (Response) {
+    }
+
+    rpc Repeat (RepeatRequest) returns (stream RepeatResponse) {
+    }
+
+    rpc Ping (PingRequest) returns (PingResponse) {
     }
 }
 ```
