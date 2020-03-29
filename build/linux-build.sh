@@ -23,20 +23,22 @@ cp protoc-gen-grpc-web-1.0.7-linux-x86_64 /usr/local/bin/protoc-gen-grpc-web
 #make protoc-gen-grpc-web executable
 chmod +x /usr/local/bin/protoc-gen-grpc-web
 
+echo "The PWD is: $(pwd)"
+
 #set the working directory to an env var
-WORK_DIR=$(cd ../ && pwd)
+export SIMPLE_GRPC_WORK_DIR=$(cd ../ && pwd)
 
 #create the environmental variable that describes the directory where generated Javascript files will be stored
-export OUT_DIR="${WORK_DIR}/client/js"
+export SIMPLE_GRPC_OUT_DIR="${SIMPLE_GRPC_WORK_DIR}/client/js"
 #create the environmental variable that describes the directory that contains .proto file
-export PROTO_DIR="${WORK_DIR}/proto"
+export SIMPLE_GRPC_PROTO_DIR="${SIMPLE_GRPC_WORK_DIR}/proto"
 
 ## visually confirm that the env var as correct
-echo "The PHOTO_DIR is: ${PROTO_DIR}"
-echo "The OUT_DIR is: ${OUT_DIR}"
+echo "The SIMPLE_GRPC_PROTO_DIR is: ${SIMPLE_GRPC_PROTO_DIR}"
+echo "The SIMPLE_GRPC_OUT_DIR is: ${SIMPLE_GRPC_OUT_DIR}"
 
-#generate the gRPC Client Code into $OUT_DIR
-protoc --proto_path=$PROTO_DIR simple.proto --js_out=import_style=commonjs,binary:$OUT_DIR
+#generate the gRPC Client Code into $SIMPLE_GRPC_OUT_DIR
+protoc --proto_path=$SIMPLE_GRPC_PROTO_DIR simple.proto --js_out=import_style=commonjs,binary:$SIMPLE_GRPC_OUT_DIR
 
 #generate the JavaScript code to embedded in the client web-page
-protoc -I=$PROTO_DIR simple.proto --grpc-web_out=import_style=commonjs,mode=grpcwebtext:$OUT_DIR
+protoc -I=$SIMPLE_GRPC_PROTO_DIR simple.proto --grpc-web_out=import_style=commonjs,mode=grpcwebtext:$SIMPLE_GRPC_OUT_DIR
