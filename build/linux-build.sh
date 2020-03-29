@@ -9,7 +9,7 @@ curl -OL https://github.com/protocolbuffers/protobuf/releases/download/v3.11.4/p
 #unzip the file
 unzip protoc-3.11.4-linux-x86_64.zip
 #copy the protoc and include files in the host machine file file system
-cp -avr ./include /usr/local/include
+cp -avr include/ /usr/local/
 cp -avr ./bin/protoc /usr/local/bin/protoc
 #make protoc executable
 chmod +x /usr/local/bin/protoc
