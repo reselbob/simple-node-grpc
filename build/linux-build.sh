@@ -27,6 +27,8 @@ echo "The PWD is: $(pwd)"
 
 #set the working directory to an env var
 export SIMPLE_GRPC_WORK_DIR=$(cd ../ && pwd)
+echo "The SIMPLE_GRPC_WORK_DIR is: ${SIMPLE_GRPC_WORK_DIR}"
+
 
 #create the environmental variable that describes the directory where generated Javascript files will be stored
 export SIMPLE_GRPC_OUT_DIR="${SIMPLE_GRPC_WORK_DIR}/client/js"
