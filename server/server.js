@@ -38,6 +38,10 @@ function divide(call, callback) {
     callback(null, {result});
 }
 
+function ping(call, callback) {
+    callback(null, {result: call.request.data} );
+}
+
 
 function repeat(call) {
     for(let i = 0; i< call.request.limit;i++){
@@ -58,6 +62,7 @@ function main()  {
     implementations.multiply = multiply;
     implementations.divide = divide;
     implementations.repeat = repeat;
+    implementations.ping = ping;
 
     server = new grpc.Server();
     server.addService(simple_proto.SimpleService.service, implementations);

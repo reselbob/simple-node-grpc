@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package simplegrpc;
 
-option objc_class_prefix = "SIMPLEGRPC";
-
 /* Describes an array of floats to be processed */
 message Request {
     repeated double numbers = 1;
@@ -32,6 +30,18 @@ message RepeatResponse {
     int32 counter = 2;
 }
 
+/* Describes the response from a Ping call
+ */
+message PingResponse {
+    string result = 1;
+}
+
+/* Describes the request to a Ping call
+ */
+message PingRequest {
+    string data = 1;
+}
+
 service SimpleService {
     rpc Add (Request) returns (Response) {
     }
@@ -46,5 +56,8 @@ service SimpleService {
     }
 
     rpc Repeat (RepeatRequest) returns (stream RepeatResponse) {
+    }
+
+    rpc Ping (PingRequest) returns (PingResponse) {
     }
 }
