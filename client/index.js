@@ -1,5 +1,5 @@
-const {PingRequest, PingResponse} = require('./js/simple_pb.js');
-const {SimpleService} = require('./js/simple_grpc_web_pb.js');
+const {PingRequest, PingResponse} = require('../tmp/simple_pb.js');
+const {SimpleService} = require('../tmp/simple_grpc_web_pb.js');
 
 var simpleService = new SimpleService('http://localhost:8080');
 
