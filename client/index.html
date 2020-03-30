@@ -9,17 +9,23 @@
 <div>The is the TEST page for the gRPC client.</div>
 
 <hr>
+<div>Call to Ping</div>
+<div id="pingOutput"></div>
 
-<div id="messageOutput"></div>
+<hr>
+<div>Call to SimplePing</div>
+<div id="simplePingOutput"></div>
 
 </body>
 <script src="main.js"></script>
 <script>
     var callback = function(err, response){
-        document.getElementById('messageOutput').innerHTML = response;
+        document.getElementById('pingOutput').innerHTML = response;
     }
 
-    document.getElementById('messageOutput').innerHTML = SimpleService.ping('I am the big walrus',callback);
+    document.getElementById('simplePingOutput').innerHTML = SimpleService.simplePing('A call to Simple Ping ' + new Date().toString());
+
+    SimpleService.ping('A call to Ping' + new Date().toString(),callback);
 
 </script>
 </html>

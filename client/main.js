@@ -94,7 +94,7 @@ var SimpleService =
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("\n\nconst {PingRequest, PingResponse} = __webpack_require__(/*! ./js/simple_pb.js */ \"./js/simple_pb.js\");\nconst {SimpleServiceClient} = __webpack_require__(/*! ./js/simple_grpc_web_pb.js */ \"./js/simple_grpc_web_pb.js\");\n\nconst client = new SimpleServiceClient('http://localhost:8080');\n\nmodule.exports = {\n    ping: function(data, callback){\n        const request = new PingRequest();\n        request.setData(data);\n        const metadata = {'content-type': 'application/grpc-web+proto'};\n        client.ping(request, metadata, function(err, response) {\n            callback(err, response.result)\n        })\n    },\n    simplePing: function(data){\n        return data;\n    }\n};\n\n\n\n\n\n//# sourceURL=webpack://SimpleService/./index.js?");
+eval("\n\nconst {PingRequest, PingResponse} = __webpack_require__(/*! ./js/simple_pb.js */ \"./js/simple_pb.js\");\nconst {SimpleServiceClient} = __webpack_require__(/*! ./js/simple_grpc_web_pb.js */ \"./js/simple_grpc_web_pb.js\");\n\nconst client = new SimpleServiceClient('http://'+window.location.hostname+':8080', null, null);\n\nmodule.exports = {\n    ping: function(data, callback){\n        const request = new PingRequest();\n        request.setData(data);\n        const metadata = {\"content-type\": \"application/grpc-web\"};\n        client.ping(request, metadata, function(err, response) {\n            callback(err, response.result)\n        })\n    },\n    simplePing: function(data){\n        return data;\n    }\n};\n\n\n\n\n\n//# sourceURL=webpack://SimpleService/./index.js?");
 
 /***/ }),
 
