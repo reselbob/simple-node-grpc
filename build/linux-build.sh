@@ -54,7 +54,7 @@ protoc --proto_path=$SIMPLE_GRPC_PROTO_DIR simple.proto --js_out=import_style=co
 protoc -I=$SIMPLE_GRPC_PROTO_DIR simple.proto --grpc-web_out=import_style=commonjs,mode=grpcwebtext:$SIMPLE_GRPC_OUT_DIR
 
 #install the client packages
-cd .. && npm install
+cd ../client && npm install
 
 #do a visual conformation on the webpack, web config
 cat ./webpack.config.js
