@@ -1,6 +1,6 @@
 # Simple gRPC
 
-This is a project intended to demonstrate how to run both a gRPC server and web client that uses the server.
+This is a project intended to demonstrate how to run both a gRPC server and CLI client that uses the server.
 
 Both client CLI tool and server are written in Node.js.
 
