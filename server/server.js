@@ -34,7 +34,7 @@ function subtract(call, callback) {
 
 function divide(call, callback) {
     const input = call.request.numbers;
-    const result = input.reduce((a, b) => a / b, 1);
+    const result = input.reduce((a, b) => a / b);
     callback(null, {result});
 }
 
