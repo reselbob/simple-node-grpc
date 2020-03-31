@@ -1,6 +1,16 @@
 # Simple gRPC Server
 
-This project is a demonstration gRPC API written in Node.JS.
+This project is a demonstration gRPC API written in Node.js.
+
+## Installation
+
+Install the packages.
+
+`npm install`
+
+The start the server.
+
+`node server.js`
 
 ## Description
 
@@ -34,17 +44,6 @@ Each function in the API returns a message named `Response`. The following is an
   "result": 0.00006613756613756613
 }
 ```
-
-## Installation
-
-Install the packages.
-
-`npm install`
-
-The start the server.
-
-`node server.js`
-
 
 ## The `.proto` File
 
