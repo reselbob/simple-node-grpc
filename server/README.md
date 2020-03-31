@@ -69,8 +69,8 @@ message Response {
 }
 
 /* Describes the request for a repeated value
- value, the string to repeat
- limit, the number of times to repeat
+ @value, the string to repeat
+ @limit, the number of times to repeat
  */
 message RepeatRequest {
     string value = 1;
@@ -78,8 +78,8 @@ message RepeatRequest {
 }
 
 /* Describes the response for a repeated value
- value, the repeated string
- limit, the ordinal position in the response stream
+ @value, the repeated string
+ @counter, the ordinal position in the response stream
  */
 message RepeatResponse {
     string value = 1;
