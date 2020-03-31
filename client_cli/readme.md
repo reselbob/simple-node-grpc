@@ -14,7 +14,15 @@ The Simple Service CLI (`sscli`) is command line tool intended to allow users to
 
 ## Installation
 
-`npm install -g`
+Run:
+
+`sudo npm install -g`
+
+Then run:
+
+`npm rebuild`
+
+(Running `rebuild` address a known issue in the gRPC package.)
 
 The CLI tool is published globally as the executable, `sscli`.
 
