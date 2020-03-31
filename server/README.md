@@ -21,7 +21,7 @@ The `Simple Service` is a gPRC API that publishes four functions:
 * `multiply`, multiplies an array of floating point numbers passed to it, calculated according to order in the array
 * `divide`, divides an array of floating point numbers passed to it, calculated according to order in the array
 * `repeat`, repeats a submitted string as a stream. Number of emissions in the stream is determined by the parameter, `count`
-* `ping`, pings back a string submitted
+* `ping`, pings back a submitted string 
 
 For the details of the request and reponse message for each function, read the section, **The `.proto` File**, the follows the section **tl;dr** below.
 
