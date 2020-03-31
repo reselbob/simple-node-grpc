@@ -16,12 +16,18 @@ The start the server.
 
 The `Simple Service` is a gPRC API that publishes four functions:
 
-* add
-* subtract
-* multiply
-* divide
+* `add`, sums an array of floating point numbers passed to it
+* `subtract`, subtracts an array of floating point numbers passed to it, calculated according to order in the array
+* `multiply`, multiplies an array of floating point numbers passed to it, calculated according to order in the array
+* `divide`, divides an array of floating point numbers passed to it, calculated according to order in the array
+* `repeat`, repeats a submitted string as a stream. Number of emissions in the stream is determined by the parameter, `count`
+* `ping`, pings back a string submitted
 
-Each function take the message, `Request` as an argument. `Request` is
+For the details of the request and reponse message for each function, read the section, **The `.proto` File**, the follows the section **tl;dr** below.
+
+## tl;dr;
+
+The math functions take the message, `Request` as an argument. `Request` is
 an array of floating point numbers.
  
 The following is an example of a `Request Message`:
