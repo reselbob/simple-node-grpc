@@ -120,10 +120,9 @@ switch (argv.o.toLowerCase()) {
     case('divide'):
         divide(argv.d);
         break;
-    case('repeat'): {
+    case('repeat'):
         repeat(argv.m, argv.c);
         break;
-    }
     case('ping'):
         ping(argv.m);
         break;
