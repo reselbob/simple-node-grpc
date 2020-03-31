@@ -12,8 +12,8 @@ Copy the latest version of the project's `.proto` file into the both client and 
 
 ## Getting the server up and running
 
-Read the installation instructions [here](./server/README.md)
+Read the gRPC API server installation instructions [here](./server/README.md)
 
 ## Getting the CLI tool up and running
 
-Read the installation instructions [here](./client_cli/readme.md)
+Read the CLI client tool installation instructions [here](./client_cli/readme.md)
