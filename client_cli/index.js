@@ -34,29 +34,44 @@ const mathCallback = (err, response) =>{
 
 const repeatCallback = (err, response) =>{
     console.log(response)
-}
+};
+
+const argMathError = (operation) => {
+    throw new Error(`Invalid array provided for operation, ${operation}`)
+};
+const argRepeatError = (arr) => {
+    throw new Error(`Invalid arguments provided for operation Repeat, Invalid arguments, ${JSON.stringify(arr)}`)
+};
 
 const add = (arr) =>{
+    if(!Array.isArray(arr)) argMathError('add');
     const numbers = arr;
     client.add(numbers, mathCallback);
 };
 
 const subtract = (arr) =>{
+    if(!Array.isArray(arr)) argMathError('subtract');
     const numbers = arr;
     client.subtract(numbers, mathCallback);
 };
 
 const divide = (arr) =>{
+    if(!Array.isArray(arr)) argMathError('divide');
     const numbers = arr;
     client.divide(numbers, mathCallback);
 };
 
-const multiple = (arr) =>{
+const multiply = (arr) =>{
+    if(!Array.isArray(arr)) argMathError('multiply');
     const numbers = arr;
     client.multiply(numbers, mathCallback);
 };
 
 const repeat = (message, count) =>{
+    const arr = [];
+    if(typeof  message !== 'string') arr.push('message');
+    if(typeof  count !== 'number') arr.push('count');
+    if(arr.length > 0 ) argRepeatError(arr);
     client.repeat({message, count}, repeatCallback);
 };
 
