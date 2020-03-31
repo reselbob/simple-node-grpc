@@ -29,7 +29,7 @@ The CLI tool is published globally as the executable, `sscli`.
 ## User Documentation
 
 ```text
-Usage: sscli -o [string] - d [array] -m [string] -l 100 [num
+Usage: sscli -o [string] - d [array] -m [string] -c 100 [num
 
 Options:
   --version        Show version number                                 [boolean]
