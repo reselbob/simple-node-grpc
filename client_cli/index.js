@@ -43,6 +43,10 @@ const argRepeatError = (arr) => {
     console.error(`ERROR: Invalid arguments provided for operation, Repeat, Invalid arguments, ${JSON.stringify(arr)}`);
 };
 
+const opError = () => {
+    console.error(`ERROR: Missing operation. Please declare one of the following operations: add, subtract, divide, multiply, repeat, ping`);
+};
+
 const add = (arr) =>{
     if(!Array.isArray(arr)) argMathError('add');return;
     const numbers = arr;
@@ -81,6 +85,8 @@ const ping = (message) =>{
     }
     client.ping(message, callback)
 };
+
+if(!argv.o)opError();return;
 
 switch(argv.o.toLowerCase()){
     case('add'): add(JSON.parse(argv.d));break;
