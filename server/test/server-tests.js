@@ -1,12 +1,13 @@
-const SERVER_URL = 'localhost:50051';
-const PROTO_PATH = process.cwd() + '/simple.proto';
-let {server} = require("../index");
+const SERVER_URL = 'localhost:8080';
+const PROTO_PATH = process.cwd() + '/proto/simple.proto';
+let {server} = require("../server");
 const grpc = require('grpc');
 const protoLoader = require('@grpc/proto-loader');
 const expect = require('chai').expect;
 const describe = require('mocha').describe;
 const it = require('mocha').it;
 const after = require('mocha').after;
+const faker = require('faker');
 
 const packageDefinition = protoLoader.loadSync(
     PROTO_PATH,
@@ -26,10 +27,25 @@ const client = new simplegrpc.SimpleService(SERVER_URL,
 
 describe('Basic gRPC Tests: ', () => {
 
-    after(async function() {
-        await server.forceShutdown();
+    after(function() {
+        server.forceShutdown();
         console.log({message: `gRPC server shutdown at ${new Date()}`})
     });
+
+    it('Can Ping', function (done) {
+        function callback(error, result) {
+            if (error) {
+                console.log(error);
+                done(error);
+            }
+            expect(result).to.be.an('object');
+            expect(result.result).to.equal(data);
+            done()
+        }
+        const data  = faker.lorem.words(2);
+        const request = {data};
+        client.Ping(request, callback);
+    })
 
     it('Can Add', function (done) {
         function callback(error, result) {
