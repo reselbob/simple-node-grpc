@@ -37,7 +37,7 @@ Options:
                    subtract, multiply, divide, repeat,ping            [required]
   -d, --data       The array of numbers to process. Used with the operations,
                    add, subtract, multiply, divide
-  -m, --message    Used the with the operation, repeat and ping. The message to
+  -m, --message    Used with the operation, repeat and ping. The message to
                    transit.
   -c, --count      Used the with the operation, repeat. The count of the number
                    of messages to return in the stream.
