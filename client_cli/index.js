@@ -86,7 +86,7 @@ const ping = (message) =>{
     client.ping(message, callback)
 };
 
-if(!argv.o)opError();return;
+if(!argv.o){opError();return};
 
 switch(argv.o.toLowerCase()){
     case('add'): add(JSON.parse(argv.d));break;
