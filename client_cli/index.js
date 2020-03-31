@@ -6,7 +6,7 @@ const {SimpleServiceClient} = require('./client');
 
 
 var argv = require('yargs')
-    .usage('Usage: $0 -o [string] - d [array] -m [string] -l 100 [num')
+    .usage('Usage: $0 -o [string] - d [array] -m [string] -c 100 [num')
     .example('$0 -o add -d [4,5.5,6]', 'Sums up the numbers in the array [4, 5.5, 6]')
     .example('$0 -o repeat -m I have a secret -c 100', 'returns the messages, "I have a secret" in a stream of 100 messages')
     .alias('o', 'operation')
