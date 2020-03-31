@@ -40,7 +40,7 @@ const argMathError = (op) => {
     console.error(`ERROR: Invalid array provided for operation, ${op}`);
 };
 const argRepeatError = (arr) => {
-    console.error(`ERROR: Invalid arguments provided for operation, Repeat, Invalid arguments, ${JSON.stringify(arr)}`);
+    console.error(`ERROR: Invalid parameters provided for operation, Repeat, Invalid parameters, ${JSON.stringify(arr)}`);
 };
 
 const opError = () => {
