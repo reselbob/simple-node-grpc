@@ -39,7 +39,7 @@ Options:
                    add, subtract, multiply, divide
   -m, --message    Used with the operation, repeat and ping. The message to
                    transit.
-  -c, --count      Used the with the operation, repeat. The count of the number
+  -c, --count      Used the with the operation, repeat. Indicates the number
                    of messages to return in the stream.
   -u, --url        The url of the gRPC server.       [default: "localhost:8080"]
   -h, --help       Show help                                           [boolean]
