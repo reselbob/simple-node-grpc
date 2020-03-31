@@ -36,8 +36,8 @@ const repeatCallback = (err, response) =>{
     console.log(response)
 };
 
-const argMathError = (operation) => {
-    throw new Error(`Invalid array provided for operation, ${operation}`)
+const argMathError = (op) => {
+    throw new Error(`Invalid array provided for operation, ${op}`)
 };
 const argRepeatError = (arr) => {
     throw new Error(`Invalid arguments provided for operation Repeat, Invalid arguments, ${JSON.stringify(arr)}`)
