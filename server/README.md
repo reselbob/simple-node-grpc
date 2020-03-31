@@ -27,7 +27,7 @@ For the details of the request and reponse message for each function, read the s
 
 ## tl;dr;
 
-The math functions take the message, `Request` as an argument. `Request` is
+The math functions take the message, `Request` as an argument. `Request` has a field, `numbers` which is
 an array of floating point numbers.
  
 The following is an example of a `Request Message`:
@@ -40,7 +40,7 @@ The following is an example of a `Request Message`:
 }
 ```
  
-Each function will process all the numbers in the array in order.
+Each math function will process all the numbers in the array in order.
 
 Each function in the API returns a message named `Response`. The following is an example of a 
 `Response` message:
