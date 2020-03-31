@@ -3,7 +3,7 @@ const SERVER_URL = 'localhost:8080';
 const PROTO_PATH = __dirname + '/proto/simple.proto';
 const {SimpleServiceClient} = require('./client');
 
-const client = new SimpleServiceClient(SERVER_URL,PROTO_PATH );
+
 
 var argv = require('yargs')
     .usage('Usage: $0 -o [string] - d [array] -m [string] -l 100 [num')
@@ -25,6 +25,8 @@ var argv = require('yargs')
     .alias('h', 'help')
     .epilog('copyright 2020')
     .argv;
+
+const client = new SimpleServiceClient(argv.u, PROTO_PATH);
 
 const mathCallback = (err, response) =>{
     console.log(JSON.stringify(response.result))
