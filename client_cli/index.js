@@ -47,25 +47,39 @@ const opError = () => {
     console.error(`ERROR: Missing operation. Please declare one of the following operations: add, subtract, divide, multiply, repeat, ping`);
 };
 
-const add = (arr) =>{
+const validateArray = (data) =>{
+    let arr;
+    try {
+        arr = JSON.parse(data)
+    } catch (e) {
+        if(! e instanceof SyntaxError){throw e}
+    }
+    if(Array.isArray(arr))return arr;
+}
+
+const add = (arg) =>{
+    const arr = validateArray(arg);
     if(!Array.isArray(arr)) argMathError('add');return;
     const numbers = arr;
     client.add(numbers, mathCallback);
 };
 
-const subtract = (arr) =>{
+const subtract = (arg) =>{
+    const arr = validateArray(arg);
     if(!Array.isArray(arr)) argMathError('subtract');return;
     const numbers = arr;
     client.subtract(numbers, mathCallback);
 };
 
-const divide = (arr) =>{
+const divide = (arg) =>{
+    const arr = validateArray(arg);
     if(!Array.isArray(arr)) argMathError('divide');return;
     const numbers = arr;
     client.divide(numbers, mathCallback);
 };
 
-const multiply = (arr) =>{
+const multiply = (arg) =>{
+    const arr = validateArray(arg);
     if(!Array.isArray(arr)) argMathError('multiply');return;
     const numbers = arr;
     client.multiply(numbers, mathCallback);
@@ -89,10 +103,10 @@ const ping = (message) =>{
 if(typeof argv.o !== 'string'){opError();return};
 
 switch(argv.o.toLowerCase()){
-    case('add'): add(JSON.parse(argv.d));break;
-    case('subtract'): subtract(JSON.parse(argv.d));break;
-    case('multiply'): multiply(JSON.parse(argv.d));break;
-    case('divide'): divide(JSON.parse(argv.d));break;
+    case('add'): add(argv.d);break;
+    case('subtract'): subtract(argv.d);break;
+    case('multiply'): multiply(argv.d);break;
+    case('divide'): divide(argv.d);break;
     case('repeat'): repeat(argv.m, argv.c);break;
     case('ping'): ping(argv.m);break;
     default: console.log(argv.o + ' is an unknown operation')
