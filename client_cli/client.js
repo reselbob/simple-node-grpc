@@ -42,10 +42,10 @@ class SimpleServiceClient {
            return;
         });
         call.on('error', function (e) {
-            console.error(error);
+            console.error(e);
         });
         call.on('status', function (status) {
-            console.debug(status);
+            console.log(`${count} messages returned`);
         });
     }
 
