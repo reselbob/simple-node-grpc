@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gRPC Test Page</title>
+</head>
+<body>
+
+<div>The is the TEST page for the gRPC client.</div>
+
+<hr>
+<div>Call to Ping</div>
+<div id="pingOutput"></div>
+
+<hr>
+<div>Call to SimplePing</div>
+<div id="simplePingOutput"></div>
+
+</body>
+<script src="main.js"></script>
+<script>
+    var callback = function(err, response){
+        document.getElementById('pingOutput').innerHTML = response;
+    }
+
+    document.getElementById('simplePingOutput').innerHTML = SimpleService.simplePing('A call to Simple Ping ' + new Date().toString());
+
+    SimpleService.ping('A call to Ping' + new Date().toString(),callback);
+
+</script>
+</html>
