@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const SERVER_URL = 'localhost:8080';
+const GRPC_SERVER_URL = process.env.GRPC_SERVER_URL || 'localhost:8080';
 const PROTO_PATH = __dirname + '/proto/simple.proto';
 const {SimpleServiceClient} = require('./client');
 
@@ -13,7 +13,7 @@ var argv = require('yargs')
     .alias('m', 'message')
     .alias('c', 'count')
     .alias('u', 'url')
-    .default('u', SERVER_URL)
+    .default('u', GRPC_SERVER_URL)
     .describe('o', 'The operation to perform. Choose from the operations: add, subtract, multiply, divide, repeat, ping')
     .describe('d', 'The array of numbers to process. Used with the operations, add, subtract, multiply, divide')
     .describe('m', 'Used with the operation, repeat and ping. The message to transit.')

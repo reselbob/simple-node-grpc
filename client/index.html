@@ -23,7 +23,7 @@
         document.getElementById('pingOutput').innerHTML = response;
     }
 
-    document.getElementById('simplePingOutput').innerHTML = SimpleService.simplePing('A call to Simple Ping ' + new Date().toString());
+    document.getElementById('simplePingOutput').innerHTML = SimpleService.localPing('A call to Simple Ping ' + new Date().toString());
 
     SimpleService.ping('A call to Ping' + new Date().toString(),callback);
 
