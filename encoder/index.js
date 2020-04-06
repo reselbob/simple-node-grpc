@@ -1,6 +1,5 @@
 const protobuf = require('protocol-buffers');
 const fs = require('fs');
-const colors = require('colors/safe');
 const {convertToBytesInFullBinary} = require('./utils');
 
 const PROTO_PATH = process.cwd() + '/proto/simple.proto';
