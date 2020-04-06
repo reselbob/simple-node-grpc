@@ -3,7 +3,7 @@ const protoLoader = require('@grpc/proto-loader');
 let server;
 
 const PROTO_PATH = process.cwd() + '/proto/simple.proto';
-const CLIENT_SERVER_PORT = process.env.CLIENT_SERVER_PORT || 8080;
+const CLIENT_SERVER_PORT = process.env.CLIENT_SERVER_PORT || 9090;
 
 const packageDefinition = protoLoader.loadSync(
     PROTO_PATH,

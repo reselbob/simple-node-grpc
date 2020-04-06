@@ -1,0 +1,23 @@
+{
+  "name": "simple-service-protobuf-encoder",
+  "version": "1.0.0",
+  "description": "A project for demonstrating encodind and decoding protocal buffer binaries",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reselbob/simple-node-grpc.git"
+  },
+  "author": "Bob Reselman <reselbob@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/reselbob/simple-node-grpc/issues"
+  },
+  "homepage": "https://github.com/reselbob/simple-node-grpc#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "protocol-buffers": "^4.1.2"
+  }
+}
