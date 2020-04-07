@@ -9,18 +9,18 @@ const messages = protobuf(fs.readFileSync(PROTO_PATH));
 
 const getRedString = (str)=> {
     return `\x1b[31m${str}\x1b[89m`
-}
+};
 
 const getBlueString = (str)=> {
     return `\x1b[34m${str}\x1b[89m`
-}
+};
 
 const formatOutputInColor = (str) =>{
     let i = 0; let j= 0;
     let result = '';
     const chrs = str.split('');
     let currentColor = 'blue';
-    let s = ''
+    let s = '';
     for (j = 0; j < chrs.length; j++) {
         s = s + chrs[j]; i++;
         if(i === 8){
@@ -39,7 +39,9 @@ const formatOutputInColor = (str) =>{
 };
 
 const buf = messages.Dummy.encode({
-    a: 14041784,
+    a: 1,
+    b: 200,
+    c: 2
 });
 
 const str = convertToBytesInFullBinary(buf);

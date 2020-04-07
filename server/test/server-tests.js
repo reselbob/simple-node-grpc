@@ -29,8 +29,6 @@ const randomIntFromInterval = (min,max) => {
 };
 
 describe('Basic gRPC Tests: ', () => {
-
-
     after(function() {
         server.forceShutdown();
         console.log({message: `gRPC server shutdown at ${new Date()}`})
