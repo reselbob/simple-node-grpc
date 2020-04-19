@@ -13,5 +13,7 @@ services:
       - "8080:8080"
   simple-service-client:
     build: ./client
+    environment:
+      - SECURE_CALL=1
     ports:
       - "8081:8081"
