@@ -6,8 +6,8 @@ const ENVOY_PORT = process.env.CLIENT_SERVER_PORT || 8080;
 
 const ENVOY_PROTOCOL = "https";
 
-const simpleServiceClientUrl = 'https://localhost:8080';
-//const simpleServiceClientUrl = `${ENVOY_PROTOCOL}://`+ window.location.hostname +':' + ENVOY_PORT;
+//const simpleServiceClientUrl = 'https://localhost:8080';
+const simpleServiceClientUrl = `${ENVOY_PROTOCOL}://`+ window.location.hostname +':' + ENVOY_PORT;
 console.log( {simpleServiceClientUrl});
 
 const client = new SimpleServiceClient(simpleServiceClientUrl, null, null);
