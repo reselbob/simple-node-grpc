@@ -1,8 +1,8 @@
 FROM node:10.13.0-alpine
 WORKDIR /app
-COPY css/ app/css/
-COPY js/ app/js/
-COPY proto/ app/proto/
+COPY css/ css/
+COPY js/ js/
+COPY proto/ proto/
 
 COPY index.html /app
 COPY main.js /app
