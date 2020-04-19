@@ -1,9 +1,9 @@
-
-
 const {PingRequest, PingResponse} = require('./js/simple_pb.js');
 const {SimpleServiceClient} = require('./js/simple_grpc_web_pb.js');
 
-const client = new SimpleServiceClient('http://'+window.location.hostname+':8080', null, null);
+const CLIENT_SERVER_PORT = process.env.CLIENT_SERVER_PORT || 8081;
+
+const client = new SimpleServiceClient('http://'+ window.location.hostname +':' + CLIENT_SERVER_PORT, null, null);
 
 module.exports = {
     add: (data, callback) => {throw new Error('NOT IMPLEMENTED')},

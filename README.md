@@ -17,3 +17,7 @@ Read the gRPC API server installation instructions [here](./server/README.md)
 ## Getting the CLI tool up and running
 
 Read the CLI client tool installation instructions [here](./client_cli/readme.md)
+
+## Getting the Web Client up and running
+
+Read the Web Client installation instructions [here](./client/readme.md)

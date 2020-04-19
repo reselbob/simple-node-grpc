@@ -5,7 +5,5 @@
 # proto directories in subordinate projects
 cp ./proto/simple.proto ./server/proto/simple.proto
 cp ./proto/simple.proto ./client_cli/proto/simple.proto
-cp ./proto/simple.proto ./encoder/proto/simple.proto
-
 
 echo "Copy completed"

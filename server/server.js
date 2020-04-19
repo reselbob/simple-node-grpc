@@ -3,7 +3,7 @@ const protoLoader = require('@grpc/proto-loader');
 let server;
 
 const PROTO_PATH = process.cwd() + '/proto/simple.proto';
-const CLIENT_SERVER_PORT = process.env.CLIENT_SERVER_PORT || 9090;
+const PORT = process.env.PORT || 8080;
 
 const packageDefinition = protoLoader.loadSync(
     PROTO_PATH,
@@ -43,7 +43,7 @@ function ping(call, callback) {
 }
 
 
-function repeat(call) {
+function chatter(call) {
     for(let i = 0; i< call.request.limit;i++){
         call.write({value: call.request.value, counter: i});
     }
@@ -53,7 +53,7 @@ function repeat(call) {
 
 /**
  * Starts an RPC server that receives requests for the SimpleService at the
- * sample server CLIENT_SERVER_PORT
+ * sample server port
  */
 function main()  {
     const implementations = {};
@@ -61,15 +61,15 @@ function main()  {
     implementations.subtract = subtract;
     implementations.multiply = multiply;
     implementations.divide = divide;
-    implementations.repeat = repeat;
+    implementations.chatter = chatter;
     implementations.ping = ping;
 
     server = new grpc.Server();
     server.addService(simple_proto.SimpleService.service, implementations);
-    server.bind(`0.0.0.0:${CLIENT_SERVER_PORT}`, grpc.ServerCredentials.createInsecure());
-    console.log({message: `Starting gRPC Server on CLIENT_SERVER_PORT ${CLIENT_SERVER_PORT}`, startingTime: new Date()});
+    server.bind(`0.0.0.0:${PORT}`, grpc.ServerCredentials.createInsecure());
+    console.log({message: `Starting gRPC Server on port ${PORT}`, startingTime: new Date()});
     server.start();
-    console.log({message: `Started gRPC Server on CLIENT_SERVER_PORT ${CLIENT_SERVER_PORT}`, startedTime: new Date()});
+    console.log({message: `Started gRPC Server on port ${PORT}`, startedTime: new Date()});
 }
 
 main();

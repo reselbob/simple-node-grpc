@@ -1,6 +1,6 @@
-# Simple gRPC Client
+# Simple gRPC Web Client
 
-## Autogening the Client Side
+## Autogening the Client Side code
 
 **Step 1:** Install npx on the global machine, you'll need it later
 
