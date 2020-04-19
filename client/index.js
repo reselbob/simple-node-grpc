@@ -4,7 +4,11 @@ const {SimpleServiceClient} = require('./js/simple_grpc_web_pb.js');
 const ENVOY_PORT = process.env.CLIENT_SERVER_PORT || 8080;
 const ENVOY_PROTOCOL = process.env.SECURE_CALL ? 'https' : 'http';
 
-const client = new SimpleServiceClient(`${ENVOY_PROTOCOL}://`+ window.location.hostname +':' + ENVOY_PORT, null, null);
+const simpleServiceClientUrl = `${ENVOY_PROTOCOL}://`+ window.location.hostname +':' + ENVOY_PORT
+
+console.log( {simpleServiceClientUrl});
+
+const client = new SimpleServiceClient(simpleServiceClientUrl, null, null);
 
 module.exports = {
     add: (data, callback) => {throw new Error('NOT IMPLEMENTED')},
