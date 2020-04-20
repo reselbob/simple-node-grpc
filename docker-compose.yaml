@@ -3,14 +3,14 @@ services:
   node-server:
     build: ./server
     ports:
-      - "9090:9090"
+      - "9099:9099"
   envoy:
     build:
       context: ./
       dockerfile: ./envoy/Dockerfile
     image: grpcweb/envoy
     ports:
-      - "8080:8080"
+      - "8099:8099"
   simple-service-client:
     build: ./client
     environment:

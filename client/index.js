@@ -1,7 +1,7 @@
 const {PingRequest, PingResponse} = require('./js/simple_pb.js');
 const {SimpleServiceClient} = require('./js/simple_grpc_web_pb.js');
 
-const ENVOY_PORT = process.env.CLIENT_SERVER_PORT || 8080;
+const ENVOY_PORT = process.env.CLIENT_SERVER_PORT || 8099;
 //const ENVOY_PROTOCOL = process.env.SECURE_CALL ? 'https' : 'http';
 
 const ENVOY_PROTOCOL = "http";
