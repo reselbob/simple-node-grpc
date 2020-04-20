@@ -4,5 +4,5 @@ COPY package.json /app
 RUN npm install
 COPY server.js /app
 COPY proto/ /app/proto/
-EXPOSE 8080
+EXPOSE 8099
 CMD  ["node", "server.js"]
