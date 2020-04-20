@@ -4,10 +4,10 @@ COPY css/ css/
 COPY js/ js/
 COPY proto/ proto/
 
-COPY index.html /app
-COPY main.js /app
-COPY server.js /app
-COPY package* /app
+COPY index.html /app/
+COPY main.js /app/
+COPY server.js /app/
+COPY package* /app/
 
 RUN npm install
 EXPOSE 8081
